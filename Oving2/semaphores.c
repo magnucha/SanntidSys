@@ -3,52 +3,50 @@
 #include <unistd.h>
 #include <semaphore.h>
 
-sem_t* resource;
+sem_t resource;
 
 void* thread_1(void* arg){
 	for (int i=0;i<4;i++) {
-		sem_wait(resource);
+		sem_wait(&resource);
 		printf("Thread: 1, Loop: %i\n", i);
-		sem_post(resource);
+		sem_post(&resource);
 	}
 }
 
 void* thread_2(void* arg){
 	for (int i=0;i<4;i++) {
-		sem_wait(resource);
+		sem_wait(&resource);
 		printf("Thread: 2, Loop: %i\n", i);
-		sem_post(resource);
+		sem_post(&resource);
 	}
 }
 
 void* thread_3(void* arg){
 	for (int i=0;i<4;i++) {
-		sem_wait(resource);
+		sem_wait(&resource);
 		printf("Thread: 3, Loop: %i\n", i);
-		sem_post(resource);
+		sem_post(&resource);
 	}
 }
 
 void* thread_4(void* arg){
 	for (int i=0;i<4;i++) {
-		sem_wait(resource);
+		sem_wait(&resource);
 		printf("Thread: 4, Loop: %i\n", i);
-		sem_post(resource);
+		sem_post(&resource);
 	}
 }
 
 void* thread_5(void* arg){
 	for (int i=0;i<4;i++) {
-		sem_wait(resource);
+		sem_wait(&resource);
 		printf("Thread: 5, Loop: %i\n", i);
-		sem_post(resource);
+		sem_post(&resource);
 	}
 }
 
 int main(void){
-	printf("DEBUG\n");
-	sem_init(resource, 0, 3);
-	printf("DEBUG\n");
+	sem_init(&resource, 0, 3);
 	
 	pthread_t thread1;
 	pthread_t thread2;
