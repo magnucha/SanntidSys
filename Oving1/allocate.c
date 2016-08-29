@@ -6,8 +6,12 @@
 void allocate(int value){
 	int *ptr = NULL;
 	ptr = malloc(100000 * sizeof(int));
+	if(ptr == NULL){
+		perror("Error: ");
+		exit(1);
+	}
  	*ptr = value;
- 	printf("test of allocate memory: %i\n", ptr);
+ 	printf("test of allocate memory: %i\n", *ptr);
 } 
 
 int main(){
