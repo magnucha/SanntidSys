@@ -2,11 +2,11 @@
 #define LINKED_LIST_H
 
 /* Internal node type */
-struct node {
+typedef struct node {
 	struct node *next;
 	struct node *prev;
 	int data;
-};
+} node;
 
 /* Internal data type representing list */
 struct list {
