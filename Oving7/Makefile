@@ -6,9 +6,9 @@ XENO_LIBS:=$(shell DESTDIR=$(XENO_DESTDIR) $(XENO_CONFIG) --skin native --ldflag
 CC=gcc
 CFLAGS=-g -pthread -D_GNU_SOURCE $(XENO_CFLAGS)
 LDFLAGS= -g $(XENO_LIBS) -lcomedi -lrt -lm -pthread 
-SOURCES=io.c main.c
+SOURCES=io.c main_icpp.c
 OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=oving6
+EXECUTABLE=oving7_icpp
 
 
 all: $(EXECUTABLE)
